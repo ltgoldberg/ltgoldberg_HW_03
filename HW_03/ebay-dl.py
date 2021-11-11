@@ -138,7 +138,7 @@ if __name__ == '__main__':
             print('len(tags_items)=',len(tags_items))
             print('len(items)=',len(items))
 
-    # write the json to a file
+
     filename = args.search_term + '.json'
     with open(filename, 'w', encoding='ascii') as f:
         f.write(json.dumps(items))
