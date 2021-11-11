@@ -59,20 +59,20 @@ def parse_shippingcost(text):
                 shipping_cost += char
         return int(shipping_cost)
 
-# this if statement says only run the code below when the python file is run "normally"
-# where normally means not in the doctests
+
 if __name__ == '__main__':
 
-    # get command line arguments
+
     parser = argparse.ArgumentParser(description='Download information from ebay and convert it to JSON.')
     parser.add_argument('search_term')
     args = parser.parse_args()
+    parser.add_argument('--csv', action="store_true")
     print('args.search_term=', args.search_term)
 
     # list of all items found in all ebay webpages
     items = []
 
-    # loop over the ebay webpages
+   
     for page_number in range(1,11):
         # build the url
         url = 'https://www.ebay.com/sch/i.html?_from=R40&_nkw=' 
@@ -138,7 +138,14 @@ if __name__ == '__main__':
             print('len(tags_items)=',len(tags_items))
             print('len(items)=',len(items))
 
-
+    # write the json to a file
     filename = args.search_term + '.json'
+    with open(filename, 'w', encoding='ascii') as f:
+        f.write(json.dumps(items))
+
+    if args.csv:
+        filename = args.search_term + '.csv'
+    else:
+        filename = args.search_term+'.json'
     with open(filename, 'w', encoding='ascii') as f:
         f.write(json.dumps(items))
