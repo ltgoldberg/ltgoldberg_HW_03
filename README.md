@@ -13,7 +13,7 @@ III.
 python3 ebay-dl.py 'wrentch'--csv  
 python3 ebay-dl.py 'pencil case'--csv 
 python3 ebay-dl.py 'bicycle'--csv 
-'''
+  ```
 
 
 [Course Project] (https://github.com/mikeizbicki/cmc-csci040/tree/2021fall/hw_03)
