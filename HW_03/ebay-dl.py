@@ -113,7 +113,7 @@ if __name__ == '__main__':
             shipping_cost = None
             tags_shippingcost = tag_item.select('.s-item__shipping')
             for tag in tags_shippingcost:
-                shipping_cost = parse_shippingcost(tag.text)
+                shipping_cost = parse_price(tag.text)
 
             freereturns = False
             tags_freereturns = tag_item.select('.s-item__free-returns')
